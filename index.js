@@ -8,6 +8,11 @@ const getFontSize = () => {
   return parseFloat(fontSize); 
 }
 
+const getRandomHexColor = () => {
+  let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+  return randomColor;
+}
+
 const zoomIn = () => {
   let fontSize = getFontSize();
   if (fontSize <= 30) {
@@ -28,5 +33,11 @@ const zoomOut = () => {
   }
 }
 
+const setRandomColor = () => {
+  let randomColor = getRandomHexColor();
+  paragraph.style.color = randomColor;
+}
+
 plusButton.addEventListener("click", zoomIn);
 minusButton.addEventListener("click", zoomOut);
+colorButton.addEventListener("click", setRandomColor);
