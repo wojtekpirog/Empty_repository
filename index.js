@@ -8,7 +8,8 @@ const getFontSize = () => {
   return parseFloat(fontSize);
 }
 
-const getRandomHexColor = () => "#" + Math.floor(Math.random() * 16777215).toString(16);
+// Wygeneruj losową wartość koloru w postaci szesnastkowej;
+// const getRandomHexColor = () => "#" + Math.floor(Math.random() * 16777215).toString(16);
 
 const zoomIn = () => {
   let fontSize = getFontSize();
@@ -24,7 +25,12 @@ const zoomOut = () => {
   paragraph.style.fontSize = fontSize + "px";
 }
 
-const setRandomColor = () => paragraph.style.color = getRandomHexColor();
+const setRandomColor = () => {
+  let red = Math.floor(Math.random() * 255);
+  let green = Math.floor(Math.random() * 255);
+  let blue = Math.floor(Math.random() * 255);
+  paragraph.style.color = `rgb(${red}, ${green}, ${blue})`;
+};
 
 plusButton.addEventListener("click", zoomIn);
 minusButton.addEventListener("click", zoomOut);
