@@ -4,39 +4,27 @@ const colorButton = document.querySelector("button:nth-of-type(3)");
 const paragraph = document.querySelector("p");
 
 const getFontSize = () => {
-  const fontSize = getComputedStyle(paragraph).fontSize;
-  return parseFloat(fontSize); 
+  const fontSize = window.getComputedStyle(paragraph).fontSize;
+  return parseFloat(fontSize);
 }
 
-const getRandomHexColor = () => {
-  let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
-  return randomColor;
-}
+const getRandomHexColor = () => "#" + Math.floor(Math.random() * 16777215).toString(16);
 
 const zoomIn = () => {
   let fontSize = getFontSize();
-  if (fontSize <= 30) {
-    fontSize += 2;
-    paragraph.style.fontSize = `${fontSize}px`;
-  } else {
-    return;
-  }
+  if (fontSize >= 40) return;
+  fontSize += 2;
+  paragraph.style.fontSize = fontSize + "px";
 }
 
 const zoomOut = () => {
   let fontSize = getFontSize();
-  if (fontSize >= 18) {
-    fontSize -= 2;
-    paragraph.style.fontSize = `${fontSize}px`;
-  } else {
-    return;
-  }
+  if (fontSize <= 10) return;
+  fontSize -= 2;
+  paragraph.style.fontSize = fontSize + "px";
 }
 
-const setRandomColor = () => {
-  let randomColor = getRandomHexColor();
-  paragraph.style.color = randomColor;
-}
+const setRandomColor = () => paragraph.style.color = getRandomHexColor();
 
 plusButton.addEventListener("click", zoomIn);
 minusButton.addEventListener("click", zoomOut);
