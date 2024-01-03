@@ -5,54 +5,50 @@
 }
 
 body {
+  height: 100vh;
+  margin: 0;  
   font-family: 'Open Sans', sans-serif;
   color: #fff;
-  background-color: #1e1d23;
-  font-size: 24px;
-  margin: 0;
+  background: #1e1d23;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-nav ul {
-  padding-top: 50px;
-  list-style: none;
-  height: 100vh;
-  width: 350px;
-  background-color: rgb(255, 255, 255);
-  position: absolute;
-  left: -350px;
-  transition: transform .3s;
+.result {
+  margin-bottom: 50px;
 }
 
-nav a {
-  display: block;
-  text-decoration: none;
-  color: #333;
-  padding: 10px 30px;
-  transition: font-size .3s;
+label {
+  font-size: 2.25rem;
 }
 
-nav a:hover {
-  font-size: 30px;
-}
-
-.burger {
-  position: absolute;
-  top: 10px;
-  left: 10px;
+input {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  padding: 15px 40px;
+  border-radius: 8px;
   outline: none;
-  background: none;
   border: none;
-  padding: 10px 20px;
-  font-size: 36px;
-  color: #fff;
+  font-size: 20px;
+}
+
+button {
+  padding: 20px 40px;
+  margin: 10px;
+  font-size: 20px;
   cursor: pointer;
-  transition: transform .3s;
+  background: none;
+  color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  text-transform: uppercase;
+  transition: .3s;
 }
 
-.active {
-  transform: translateX(350px)
-}
-
-.hide {
-  display: none;
+button:hover {
+  background: #fff;
+  color: #1e1d23; 
 }
