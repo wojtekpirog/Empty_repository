@@ -17,8 +17,14 @@ body {
   align-items: center;
 }
 
-.result {
-  margin-bottom: 50px;
+h1 {
+  text-transform: uppercase;
+  border-bottom: 2px solid #00ff00;
+  margin-bottom: 50px;  
+}
+
+.btnContainer {
+  margin-bottom: 40px;
 }
 
 label {

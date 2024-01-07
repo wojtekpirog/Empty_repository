@@ -1,54 +1,23 @@
-const wojtas = {
-  firstName: "Wojciech",
-  lastName: "Piróg",
-  nickname: "Wojtas",
-  age: 23,
-  birthdate: new Date(2000, 0, 19),
-  "hair-color": "black",
-  "marital-status": "single",
-  sex: "male",
-  likesCats: true,
-  car: {
-    brand: "Citroen",
-    model: "C1",
-    yearLaunched: 2006,
-    "laquer-color": "Silver",
-    registrationInfo: {
-      numberplate: "DBL HS40"
-    }
-  }
+// Konstruktor to funkcja służąca do tworzenia obiektów
+const btn1 = document.querySelector(".btn1");
+const btn2 = document.querySelector(".btn2");
+const btn3 = document.querySelector(".btn3");
+const parag = document.querySelector(".result");
+
+function Meal(name, price) {
+  this.name = name 
+  this.price = price
 }
 
-// Pętla `for(in)` działa na obiektach
-const birthdate = wojtas["birthdate"];
-
-// Opcje formatowania daty:
-const options = {
-  weekday: "long",
-  day: "numeric",
-  month: "long",
-  year: "numeric"
+// Meal.prototype.printPrice = () => console.log(`${this.name} kosztuje ${this.price}.`);
+Meal.prototype.printPrice = function() {
+  console.log(`${this.name} kosztuje ${this.price}`);
 }
 
-// Funkcja formatująca datę:
-const formatter = new Intl.DateTimeFormat('pl-PL', options);
-const dateReady = formatter.format(birthdate);
+const meal1 = new Meal("Sałatka z tuńczykiem", 15.99);
+const meal2 = new Meal("Pizza z ananasem", 39.99);
+const meal3 = new Meal("Suchy chleb", 9.99);
 
-wojtas["birthdate"] = dateReady;
-
-for (const key in wojtas) {
-  console.log(`Key: ${key} | Value: ${wojtas[key]}`);
-}
-
-// const birthdate = wojtas.birthdate;
-
-// const formattingOptions = {
-//   weekday: "long",
-//   day: "numeric",
-//   month: "long",
-//   year: "numeric"
-// };
-
-// const formatter = new Intl.DateTimeFormat('pl-PL', formattingOptions);
-// const formattedDate = formatter.format(birthdate);
-// console.log(formattedDate);
+btn1.addEventListener("click", meal1.printPrice.bind(meal1));
+btn2.addEventListener("click", meal2.printPrice.bind(meal2));
+btn3.addEventListener("click", meal3.printPrice.bind(meal3));
