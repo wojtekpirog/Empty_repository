@@ -10,11 +10,11 @@ body {
   font-family: 'Open Sans', sans-serif;
   color: #fff;
   background: #1e1d23;
-  font-size: 1.5rem;
+  font-size: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 h1 {
