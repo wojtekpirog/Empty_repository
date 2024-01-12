@@ -1,52 +1,52 @@
 const btn = document.querySelector("button.btn-1");
 
-const goToTheMall = () => {
+let food = ["chicken", "rice", "salad", "soup"];
+let isVeganPerson = true;
+
+const buyFood = () => {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("👟I went to the shopping mall to buy a new shoes.👟");
-    }, 1000);
+    food ? resolve(food) : reject("There is no food to cook 😥");
   });
 }
 
-const selectShoes = () => {
+const cookFood = food => {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("💲I like the black shoes. I will buy this one.💲");
-    }, 1000);
+    food.length === 4 ? resolve(food) : reject("I need to buy more food.");
   })
 }
 
-const purchaseShoes = () => {
+const serveFood = food => {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("✨I bought the black shoes. Look at how shiny this pair is!✨");
-    }, 1000);
-  })
+    if (food.includes("chicken") && !isVeganPerson) {
+      resolve("Lunch served. Enjoy your meal!");
+    } else {
+      reject("Apologies. I didn't know this food is unsuitable for you.");
+    }
+  });
 }
 
-const handleGoToTheMall = (result) => {
+const handleBuyFood = (food) => {
+  console.log(food);
+  return cookFood(food);
+}
+
+const handleCookFood = (food) => {
+  console.log(food);
+  return serveFood(food);
+}
+
+const handleServeFood = (result) => {
   console.log(result);
-  return selectShoes();
 }
 
-const handleSelectShoes = (result) => {
-  console.log(result);
-  return purchaseShoes();
-}
-
-const handlePurchaseShoes = (result) => {
-  console.log(result);
-}
-
-const handleFailure = (error) => {
-  console.error(error);
-  alert("❗An error occured❗");
+const handleRejection = (reasonForRejection) => {
+  console.error(reasonForRejection);
 }
 
 btn.addEventListener("click", () => {
-  goToTheMall()
-    .then(handleGoToTheMall)
-    .then(handleSelectShoes)
-    .then(handlePurchaseShoes)
-    .catch(handleFailure);
+  buyFood() // Zwróci tablicę `food` lub komunikat błędu
+    .then(handleBuyFood)
+    .then(handleCookFood)
+    .then(handleServeFood)
+    .catch(handleRejection);
 });
