@@ -1,55 +1,52 @@
 const btn = document.querySelector("button.btn-1");
 
-const dessertStock = {
-  cheeseCake: {
-    inStockAmount: 10,
-    price: 5
-  },
-  spongeCake: {
-    inStockAmount: 4,
-    price: 7
-  }
-};
-
-const budget = 10;
-
-function isAvailable() {
+const goToTheMall = () => {
   return new Promise((resolve, reject) => {
-    if (dessertStock.spongeCake.inStockAmount > 0) {
-      resolve(true);
-    } else {
-      reject(false);
-    }
+    setTimeout(() => {
+      resolve("👟I went to the shopping mall to buy a new shoes.👟");
+    }, 1000);
   });
 }
 
-function checkPrice(productAvailable) {
+const selectShoes = () => {
   return new Promise((resolve, reject) => {
-    if (productAvailable && dessertStock.spongeCake.price < budget) {
-      resolve("Reasonable price. Purchasing...😊");
-    } else {
-      reject("Too expensive. Cancelling the order...😥");
-    }    
-  });
+    setTimeout(() => {
+      resolve("💲I like the black shoes. I will buy this one.💲");
+    }, 1000);
+  })
 }
 
-function handleIsAvailable(productAvailable) {
-  return checkPrice(productAvailable);
+const purchaseShoes = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("✨I bought the black shoes. Look at how shiny this pair is!✨");
+    }, 1000);
+  })
 }
 
-function handleCheckPrice(responseMessage) {
-  return checkPrice(responseMessage);
+const handleGoToTheMall = (result) => {
+  console.log(result);
+  return selectShoes();
 }
 
-function handleFailure(error) {
+const handleSelectShoes = (result) => {
+  console.log(result);
+  return purchaseShoes();
+}
+
+const handlePurchaseShoes = (result) => {
+  console.log(result);
+}
+
+const handleFailure = (error) => {
   console.error(error);
-  window.alert("Obietnica nie została spełniona 😥");
+  alert("❗An error occured❗");
 }
 
 btn.addEventListener("click", () => {
-  isAvailable()
-    .then(handleIsAvailable)
-    .then(handleCheckPrice)
-    .then(resMsg => console.log(`Response message: ${resMsg}`))
-    .catch(handleFailure)
+  goToTheMall()
+    .then(handleGoToTheMall)
+    .then(handleSelectShoes)
+    .then(handlePurchaseShoes)
+    .catch(handleFailure);
 });
