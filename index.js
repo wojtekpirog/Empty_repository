@@ -1,52 +1,52 @@
-const btn = document.querySelector("button.btn-1");
+const button = document.querySelector("button");
 
-let food = ["chicken", "rice", "salad", "soup"];
-let isVeganPerson = true;
+let beverages = ["green tea", "apple cider", "coffee", "yerba mate"];
 
-const buyFood = () => {
+function pickRandomBeverage() {
   return new Promise((resolve, reject) => {
-    food ? resolve(food) : reject("There is no food to cook 😥");
-  });
-}
+    let randomIndex = Math.floor(Math.random() * beverages.length);
+    let selectedBeverage = beverages[randomIndex];
 
-const cookFood = food => {
-  return new Promise((resolve, reject) => {
-    food.length === 4 ? resolve(food) : reject("I need to buy more food.");
+    setTimeout(() => {
+      console.log(`Selected beverage: ${selectedBeverage}`);
+      resolve(selectedBeverage);
+    }, 1000);
   })
 }
 
-const serveFood = food => {
+function checkIfHotWaterIsReady(pickedDrink) {
   return new Promise((resolve, reject) => {
-    if (food.includes("chicken") && !isVeganPerson) {
-      resolve("Lunch served. Enjoy your meal!");
-    } else {
-      reject("Apologies. I didn't know this food is unsuitable for you.");
-    }
+    setTimeout(() => {
+      if (pickedDrink) {
+        console.log("Preparing your drink...🍹");
+        resolve(pickedDrink);
+      } else {
+        reject("No beverage has been picked up.");
+      }
+    }, 1000);
   });
 }
 
-const handleBuyFood = (food) => {
-  console.log(food);
-  return cookFood(food);
+function prepareDrink(pickedDrink) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (pickedDrink) {
+        console.log(`Enjoy your ${pickedDrink}🍹`);
+        resolve(true);
+      } else {
+        reject("Your drink is not ready yet...");
+      }
+    }, 1000);
+  })
 }
 
-const handleCookFood = (food) => {
-  console.log(food);
-  return serveFood(food);
+async function asyncAwaitPromiseHandling() {
+  const pickedDrink = await pickRandomBeverage(); // Tu będzie wartość `resolve` z funkcji `pickRandomBeverage()`, a w praktyce - obiekt Promise
+  const isHotWaterReady = await checkIfHotWaterIsReady(pickedDrink);
+  const isDrinkPrepared = await prepareDrink(isHotWaterReady);
+  return isDrinkPrepared;
 }
 
-const handleServeFood = (result) => {
-  console.log(result);
-}
-
-const handleRejection = (reasonForRejection) => {
-  console.error(reasonForRejection);
-}
-
-btn.addEventListener("click", () => {
-  buyFood() // Zwróci tablicę `food` lub komunikat błędu
-    .then(handleBuyFood)
-    .then(handleCookFood)
-    .then(handleServeFood)
-    .catch(handleRejection);
+button.addEventListener("click", () => {
+  console.log(asyncAwaitPromiseHandling());
 });
