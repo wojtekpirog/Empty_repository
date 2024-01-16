@@ -1,52 +1,33 @@
-const button = document.querySelector("button");
+const result = document.querySelector(".result");
+const downloadBtn = document.querySelector("#download");
+const abortBtn = document.querySelector("#abort");
+const numbers = [1, 2, 3, 4, 5];
+const newNumbers = [];
+const newNumber = 0;
+let sum = 0;
 
-let beverages = ["green tea", "apple cider", "coffee", "yerba mate"];
-
-function pickRandomBeverage() {
-  return new Promise((resolve, reject) => {
-    let randomIndex = Math.floor(Math.random() * beverages.length);
-    let selectedBeverage = beverages[randomIndex];
-
-    setTimeout(() => {
-      console.log(`Selected beverage: ${selectedBeverage}`);
-      resolve(selectedBeverage);
-    }, 1000);
-  })
+function sumNumbers() {
+  sum = numbers.reduce((currTotal, nextVal) => currTotal + nextVal);
+  console.log(`Uzyskana suma (wewnątrz funkcji 'sumNumbers'): ${sum}`);  
 }
 
-function checkIfHotWaterIsReady(pickedDrink) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (pickedDrink) {
-        console.log("Preparing your drink...🍹");
-        resolve(pickedDrink);
-      } else {
-        reject("No beverage has been picked up.");
-      }
-    }, 1000);
-  });
+sumNumbers();
+console.log(`Uzyskana suma (poza funkcją 'sumNumbers'): ${sum}`);
+
+function listenerFn() {
+  sum = numbers.reduce((currTotal, nextVal) => currTotal - nextVal);
+  console.log(`Uzyskana różnica (wewnątrz funkcji 'listenerFn'): ${sum}`);
 }
 
-function prepareDrink(pickedDrink) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (pickedDrink) {
-        console.log(`Enjoy your ${pickedDrink}🍹`);
-        resolve(true);
-      } else {
-        reject("Your drink is not ready yet...");
-      }
-    }, 1000);
-  })
-}
-
-async function asyncAwaitPromiseHandling() {
-  const pickedDrink = await pickRandomBeverage(); // Tu będzie wartość `resolve` z funkcji `pickRandomBeverage()`, a w praktyce - obiekt Promise
-  const isHotWaterReady = await checkIfHotWaterIsReady(pickedDrink);
-  const isDrinkPrepared = await prepareDrink(isHotWaterReady);
-  return isDrinkPrepared;
-}
-
-button.addEventListener("click", () => {
-  console.log(asyncAwaitPromiseHandling());
+downloadBtn.addEventListener("click", () => {
+  listenerFn();
+  console.log(`Uzyskana różnica (poza funkcją 'listenerFn'): ${sum}`);
 });
+// Array.find() - find the first item that matches from an array:
+
+function findElem() {
+  const matchingElem = numbers.findIndex(num >= num >= 2);
+  console.log(matchingElem);
+};
+
+abortBtn.addEventListener("click", findElem);

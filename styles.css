@@ -11,10 +11,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* padding: 10px;   */
-  /* font-family: 'Open Sans', sans-serif; */
   background: #1e1d23;
-  /* font-size: 1rem; */
 }
 
 button.btn:hover {
@@ -22,7 +19,7 @@ button.btn:hover {
 }
 
 img {
-  width: 300px;
+  width: 200px;
 }
 
 /* h1 {

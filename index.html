@@ -25,12 +25,18 @@
   <body class="p-4">
     <h1 class="display-4 pb-2 border-bottom border-success">Sandbox Repository 2</h1>
     <div class="container">
-      <button type="button" class="btn-1 m-2 btn btn-outline-primary btn-lg text-white border-3 border-info text-uppercase">Click</button>      
-      <img src="" alt="">
-      <p class="lead"></p>
+      <!-- <button type="button" class="btn-1 m-2 btn btn-outline-primary btn-lg text-white border-3 border-info text-uppercase">Click</button>       -->
+      <img src="" alt="" id="one" />
+      <img src="" alt="" id="two" />
+      <div class="mt-4">
+        <button type="button" id="download" class="m-2 btn btn-outline-primary btn-lg text-white text-uppercase border-3">Download</button>
+        <button type="button" id="abort" class="m-2 btn btn-outline-primary btn-lg text-white text-uppercase border-3">Abort</button>
+      </div>
+      <p class="result"></p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./index.js"></script>
   </body>
 </html>
