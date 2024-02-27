@@ -1,3 +1,40 @@
+.square p {
+  color: lime;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
   background-color: rgb(60, 60, 60);
+}
+
+.square {
+  margin: 0 10px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.item-1 {
+  background-color: indigo;
+}
+
+.item-2 {
+  background-color: tomato;
+}
+
+.item-3 {
+  background-color: royalblue;
 }/*# sourceMappingURL=style.css.map */
