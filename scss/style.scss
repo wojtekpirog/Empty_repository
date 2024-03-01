@@ -1,55 +1,141 @@
-//Import (przestarzały standard): - nowszy to @use
-@use "./colors" as colors; 
-@use "./variables" as variables;
-@use "./code";
+@use "reset";
+@use "colors" as colors;
+@use "variables" as vars;
 
-$colors: (
-  darkViolet: colors.$indigo,
-  lightRed: colors.$tomato,
-  brightCyan: colors.$royalblue
+$handyColors: (
+  royalBlue: colors.$royalBlue,
+  light: colors.$light,
+  bgColor: vars.$page-bg-color,
+  tomatoRed: colors.$tomato,
+  lightGreen: colors.$lime,
+  grassGreen: colors.$grass,
+  road: colors.$road,
+  sun: colors.$sun,
+  black: colors.$black
 );
 
-@mixin radius($radius) {
-  border-radius: $radius;
-}
+$handyVariables: (
+  squareSide: vars.$square-side,
+  squareRadius: vars.$square-radius
+);
 
-@mixin color($bg-color) {
-  background-color: $bg-color;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+html {
+  font-size: 10px;
 }
 
 body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: "Open Sans", sans-serif;
-  background-color: variables.$page-bg-color;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  color: map-get($handyColors, light);
+  background-color: map-get($handyColors, bgColor);
 }
 
-.square {
-  margin: 0 10px;
-  width: variables.$square-side;
-  height: variables.$square-side;
-  @include radius(variables.$radius);
+h1 {
+  font-size: 4rem;
+  font-weight: 400;
+  margin: 20px 0;
 }
 
-.item-1 {
-  @include color(map-get($colors, darkViolet));
-}
+.animation-wrapper {
+  height: 70vh;
 
-.item-2 {
-  @include color(map-get($colors, lightRed));
-}
+  .sky {
+    height: 60%;
+    background-color: map-get($handyColors, royalBlue);
+    position: relative;
 
-.item-3 {
-  @include color(map-get($colors, brightCyan));
+    .sun {
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      width: map-get($handyVariables, squareSide);
+      height: map-get($handyVariables, squareSide);
+      background-color: map-get($handyColors, sun);
+      border-radius: map-get($handyVariables, squareRadius);
+      box-shadow: 0 0 30px 20px map-get($handyColors, sun);
+    }
+  }
+
+  .ground {
+    height: 40%;
+    position: relative;
+
+    .grass {
+      height: 100%;
+      background-color: map-get($handyColors, grassGreen);
+    }
+
+    .road {
+      position: absolute;
+      top: 30px;
+      width: 100%;
+      height: 60%;
+      background-color: map-get($handyColors, road);
+
+      .car {
+        position: absolute;
+        top: -20%;
+        left: 50%;
+        width: 130px;
+        height: 80px;
+        background-color: map-get($handyColors, tomatoRed);
+        border-radius: 10px 10px 0 0;
+
+        .window {
+          position: absolute;
+          top: 3px;
+          width: 30%;
+          height: 35px;
+          background-color: map-get($handyColors, royalBlue);
+          border-radius: 10px 10px 0 0;
+
+          &:first-child {
+            left: 3px;
+          }
+
+          &:nth-child(2) {
+            right: 3px;
+          }
+        }
+
+        .wheel {
+          position: absolute;
+          bottom: -15px;
+          width: 30px;
+          height: 30px;
+          background-color: map-get($handyColors, black);
+          border-radius: map-get($handyVariables, squareRadius);
+
+          &:nth-child(3) {
+            left: 10%;
+          }
+  
+          &:last-child {
+            right: 10%;
+          }
+        }
+
+        &::before, &::after {
+          content: "";
+          width: 20px;
+          height: 41px;
+          position: absolute;
+          bottom: 0;
+          background-color: map-get($handyColors, tomatoRed);
+        }
+
+        &::before {
+          left: -20px;
+        }
+
+        &::after {
+          right: -20px;
+          border-top-right-radius: 10px;
+        }
+      }
+    }
+  }
 }
