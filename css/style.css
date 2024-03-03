@@ -17,161 +17,77 @@ body {
   text-align: center;
   font-family: "Montserrat", sans-serif;
   color: #eeeeee;
-  background-color: rgb(60, 60, 60);
+  background-color: #000000;
+  overflow: hidden;
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 6rem;
   font-weight: 400;
-  margin: 20px 0;
+  margin: 3rem 0;
 }
 
-.animation-wrapper {
-  height: 70vh;
+section {
+  height: 25vh;
+  background-color: #000030;
+  border-bottom: 2px solid #eeeeee;
+  display: flex;
 }
-.animation-wrapper .sky {
-  height: 60%;
-  background-color: #4169e1;
-  position: relative;
-  animation: sky 10s ease-in-out infinite alternate;
-}
-.animation-wrapper .sky .sun {
-  position: absolute;
-  top: 50px;
-  left: 50px;
-  width: 50px;
+section .square {
+  width: 10%;
   height: 50px;
-  border-radius: 50%;
-  animation: sun 10s ease-in-out infinite alternate;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.animation-wrapper .ground {
-  height: 40%;
-  position: relative;
-  overflow: hidden;
+section .square.sq1 {
+  background-color: #4b0082;
 }
-.animation-wrapper .ground .grass {
-  height: 100%;
-  background-color: #008700;
-}
-.animation-wrapper .ground .road {
-  position: absolute;
-  top: 30px;
-  width: 100%;
-  height: 60%;
-  background-color: #7f7f7f;
-}
-.animation-wrapper .ground .road .dashed-line {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  transform: translateY(-50%);
-  border: 5px dashed #eeeeee;
-}
-.animation-wrapper .ground .road .car {
-  position: absolute;
-  width: 130px;
-  height: 80px;
+section .square.sq2 {
   background-color: #ff6347;
-  border-radius: 10px 10px 0 0;
-  animation: car 10s linear infinite;
-  animation-fill-mode: both;
 }
-.animation-wrapper .ground .road .car .window {
-  position: absolute;
-  top: 3px;
-  width: 30%;
-  height: 35px;
+section .square.sq3 {
   background-color: #4169e1;
-  border-radius: 10px 10px 0 0;
 }
-.animation-wrapper .ground .road .car .window:first-child {
-  left: 3px;
+section .square.sq4 {
+  background-color: #ffd700;
 }
-.animation-wrapper .ground .road .car .window:nth-child(2) {
-  right: 3px;
+section.section1 {
+  flex-direction: column;
+  align-items: flex-start;
 }
-.animation-wrapper .ground .road .car .wheel {
-  position: absolute;
-  bottom: -15px;
-  width: 30px;
-  height: 30px;
-  background-color: #000000;
-  border: 2px dashed;
-  border-radius: 50%;
-  animation: tires 1s linear infinite;
+section.section1 .square {
+  flex-basis: 100px;
 }
-.animation-wrapper .ground .road .car .wheel:nth-child(3) {
-  left: 10%;
+section.section1 .square.sq2 {
+  flex-grow: 1;
 }
-.animation-wrapper .ground .road .car .wheel:last-child {
-  right: 10%;
+section.section1 .square.sq4 {
+  flex-grow: 1;
 }
-.animation-wrapper .ground .road .car::before, .animation-wrapper .ground .road .car::after {
-  content: "";
-  width: 20px;
-  height: 41px;
-  position: absolute;
-  bottom: 0;
-  background-color: #ff6347;
+section.section2 {
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
-.animation-wrapper .ground .road .car::before {
-  left: -20px;
+section.section3 {
+  flex-direction: row-reverse;
+  justify-content: space-between;
 }
-.animation-wrapper .ground .road .car::after {
-  right: -20px;
-  border-top-right-radius: 10px;
+section.section3 .square {
+  flex-grow: 1;
+  height: 100%;
 }
-
-/* Animations */
-@keyframes sky {
-  0% {
-    background-color: #000030;
-  }
-  40% {
-    background-color: #4169e1;
-  }
-  60% {
-    background-color: #4169e1;
-  }
-  100% {
-    background-color: #000030;
-  }
+section.section3 .square.sq3 {
+  order: 1;
 }
-@keyframes sun {
-  0% {
-    top: 350px;
-    background-color: #c36800;
-    box-shadow: 0 0 30px 0 #c36800;
-  }
-  40% {
-    top: 50px;
-    background-color: #ffff00;
-    box-shadow: 0 0 30px 20px #ffff00;
-  }
-  60% {
-    top: 50px;
-    background-color: #ffff00;
-    box-shadow: 0 0 30px 20px #ffff00;
-  }
-  100% {
-    top: 350px;
-    background-color: #c36800;
-    box-shadow: 0 0 30px 0 #c36800;
-  }
+section.section4 {
+  flex-direction: row-reverse;
 }
-@keyframes car {
-  from {
-    left: -400px;
-  }
-  to {
-    left: calc(100% + 270px);
-  }
+section.section4 .sq1, section.section4 .sq4 {
+  align-self: flex-end;
 }
-@keyframes tires {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+section.section4 .sq3 {
+  align-self: center;
 }/*# sourceMappingURL=style.css.map */

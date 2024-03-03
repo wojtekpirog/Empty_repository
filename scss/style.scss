@@ -2,25 +2,6 @@
 @use "colors" as colors;
 @use "variables" as vars;
 
-$handyColors: (
-  royalBlue: colors.$royalBlue,
-  light: colors.$light,
-  bgColor: vars.$page-bg-color,
-  tomatoRed: colors.$tomato,
-  lightGreen: colors.$lime,
-  grassGreen: colors.$grass,
-  road: colors.$road,
-  sun: colors.$sun,
-  tires: colors.$black,
-  nightSky: colors.$nightSky,
-  sunset: colors.$sunset,
-);
-
-$handyVariables: (
-  squareSide: vars.$square-side,
-  squareRadius: vars.$square-radius
-);
-
 html {
   font-size: 10px;
 }
@@ -31,174 +12,96 @@ body {
   flex-direction: column;
   text-align: center;
   font-family: "Montserrat", sans-serif;
-  color: map-get($handyColors, light);
-  background-color: map-get($handyColors, bgColor);
+  color: colors.$light;
+  background-color: colors.$black;
+  overflow: hidden;
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 6rem;
   font-weight: 400;
-  margin: 20px 0;
+  margin: 3rem 0;
 }
 
-.animation-wrapper {
-  height: 70vh;
+section {
+  height: 25vh;
+  background-color: colors.$nightSky;
+  border-bottom: 2px solid colors.$light;
+  display: flex;
+  // align-content: stretch;
+  // `flex-wrap` jest potrzebny do pracy z `align-content`.
+  // Domyśnie: `align-content: stretch;`
+  // Zarówno `align-items`, jak i `align-content` domyślnie rozciągają zawartość elementów.
+  // `align-content` biegnie w tą samą stronę, co `align-items`, a także wymaga, aby elementy sterowane były ułożone co najmniej w dwóch rzędach.
 
-  .sky {
-    height: 60%;
-    background-color: map-get($handyColors, royalBlue);
-    position: relative;
-    animation: sky 10s ease-in-out infinite alternate;
+  // `flex-basis` jest uzależniony od `flex-direction`, oraz jest nadawany na dzieci, a dodatkowo ma wyższy priorytet niż `width`
+  .square {
+    width: 10%;
+    height: 50px;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    .sun {
-      position: absolute;
-      top: 50px;
-      left: 50px;
-      width: map-get($handyVariables, squareSide);
-      height: map-get($handyVariables, squareSide);
-      border-radius: map-get($handyVariables, squareRadius);
-      animation: sun 10s ease-in-out infinite alternate;
+    &.sq1 {
+      background-color: colors.$indigo;
+    }
+    &.sq2 {
+      background-color: colors.$tomato;
+    }
+    &.sq3 {
+      background-color: colors.$royalBlue;
+    }
+    &.sq4 {
+      background-color: colors.$gold;
     }
   }
 
-  .ground {
-    height: 40%;
-    position: relative;
-    overflow: hidden;
+  &.section1 {
+    flex-direction: column;
+    align-items: flex-start;
 
-    .grass {
+    .square {
+      flex-basis: 100px;
+
+      &.sq2 {
+        flex-grow: 1;
+      }
+      &.sq4 {
+        flex-grow: 1;
+      }
+    }
+  }
+
+  &.section2 {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &.section3 {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+    .square {
+      flex-grow: 1;
       height: 100%;
-      background-color: map-get($handyColors, grassGreen);
-    }
 
-    .road {
-      position: absolute;
-      top: 30px;
-      width: 100%;
-      height: 60%;
-      background-color: map-get($handyColors, road);
-
-      .dashed-line {
-        position: absolute;
-        top: 50%;
-        width: 100%;
-        transform: translateY(-50%);
-        border: 5px dashed map-get($handyColors, light);
-      }
-
-      .car {
-        position: absolute;
-        width: 130px;
-        height: 80px;
-        background-color: map-get($handyColors, tomatoRed);
-        border-radius: 10px 10px 0 0;
-        animation: car 10s linear infinite;
-        animation-fill-mode: both;
-
-        .window {
-          position: absolute;
-          top: 3px;
-          width: 30%;
-          height: 35px;
-          background-color: map-get($handyColors, royalBlue);
-          border-radius: 10px 10px 0 0;
-
-          &:first-child {
-            left: 3px;
-          }
-
-          &:nth-child(2) {
-            right: 3px;
-          }
-        }
-
-        .wheel {
-          position: absolute;
-          bottom: -15px;
-          width: 30px;
-          height: 30px;
-          background-color: map-get($handyColors, tires);
-          border: 2px dashed map-get($handyColors, map-get($handyColors, light));
-          border-radius: map-get($handyVariables, squareRadius);
-          animation: tires 1s linear infinite; 
-
-          &:nth-child(3) {
-            left: 10%;
-          }
-  
-          &:last-child {
-            right: 10%;
-          }
-        }
-
-        &::before, &::after {
-          content: "";
-          width: 20px;
-          height: 41px;
-          position: absolute;
-          bottom: 0;
-          background-color: map-get($handyColors, tomatoRed);
-        }
-
-        &::before {
-          left: -20px;
-        }
-
-        &::after {
-          right: -20px;
-          border-top-right-radius: 10px;
-        }
+      &.sq3 {
+        order: 1;
       }
     }
   }
-}
 
-/* Animations */
+  &.section4 {
+    flex-direction: row-reverse;
+    
+    .sq1, .sq4 {
+      align-self: flex-end;
+    }
 
-@keyframes sky {
-  0% {
-    background-color: map-get($handyColors, nightSky);
-  } 40% {
-    background-color: map-get($handyColors, royalBlue);
-  } 60% {
-    background-color: map-get($handyColors, royalBlue);
-  } 100% {
-    background-color: map-get($handyColors, nightSky);
-  }
-}
-
-@keyframes sun {
-  0% {
-    top: 350px;
-    background-color: map-get($handyColors, sunset);
-    box-shadow: 0 0 30px 0 map-get($handyColors, sunset);    
-  } 40% {
-    top: 50px;
-    background-color: map-get($handyColors, sun);
-    box-shadow: 0 0 30px 20px map-get($handyColors, sun);    
-  } 60% {
-    top: 50px;
-    background-color: map-get($handyColors, sun);
-    box-shadow: 0 0 30px 20px map-get($handyColors, sun); 
-  } 100% {
-    top: 350px;
-    background-color: map-get($handyColors, sunset);
-    box-shadow: 0 0 30px 0 map-get($handyColors, sunset); 
-  }
-}
-
-@keyframes car {
-  from {
-    left: -400px;
-  } to {
-    left: calc(100% + 270px);
-  }
-}
-
-@keyframes tires {
-  from {
-    transform: rotate(0deg);
-  } to {
-    transform: rotate(360deg);
+    .sq3 {
+      align-self: center;
+    }
   }
 }
