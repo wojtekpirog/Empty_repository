@@ -1,11 +1,17 @@
-for (let i = 0; i < 500; i++) {
-  const div = document.createElement("div");
-  div.classList.add('square', 'one');
-  document.body.append(div);
+const btn = document.querySelector("button");
+const container = document.querySelector(".container");
+const template = document.querySelector(".square-temp");
+
+let num = 1;
+
+const addSquare = () => {
+  const square = template.content.cloneNode(true);
+  const squareNumber = square.querySelector(".square-number");
+
+  squareNumber.textContent = num;
+  container.append(square);
+  
+  num++;
 }
 
-for (let i = 0; i < 500; i++) {
-  const div = document.createElement("div");
-  div.classList.add('square', 'two');
-  document.body.append(div);
-}
+btn.addEventListener("click", addSquare);

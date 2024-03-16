@@ -6,6 +6,16 @@ html {
   font-size: 10px;
 }
 
+@mixin buttonStyles {
+  padding: 10px;
+  font-size: 2.2rem;
+  color: colors.$light;
+  background: none;
+  border: 3px solid colors.$light;
+  border-radius: 10px;
+  outline: none;
+}
+
 body {
   height: 100vh;
   display: flex;
@@ -18,90 +28,46 @@ body {
 }
 
 h1 {
-  font-size: 6rem;
+  font-size: 4rem;
   font-weight: 400;
   margin: 3rem 0;
 }
 
-section {
-  height: 25vh;
-  background-color: colors.$nightSky;
-  border-bottom: 2px solid colors.$light;
+main {
+  height: 100vh;
   display: flex;
-  // align-content: stretch;
-  // `flex-wrap` jest potrzebny do pracy z `align-content`.
-  // Domyśnie: `align-content: stretch;`
-  // Zarówno `align-items`, jak i `align-content` domyślnie rozciągają zawartość elementów.
-  // `align-content` biegnie w tą samą stronę, co `align-items`, a także wymaga, aby elementy sterowane były ułożone co najmniej w dwóch rzędach.
+  justify-content: center;
+  align-items: center;
 
-  // `flex-basis` jest uzależniony od `flex-direction`, oraz jest nadawany na dzieci, a dodatkowo ma wyższy priorytet niż `width`
-  .square {
-    width: 10%;
-    height: 50px;
-    font-size: 3rem;
+  .container {
+    width: 600px;
+    height: 100%;
+    position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-flow: row wrap;
+    padding: 20px;
 
-    &.sq1 {
-      background-color: colors.$indigo;
-    }
-    &.sq2 {
-      background-color: colors.$tomato;
-    }
-    &.sq3 {
-      background-color: colors.$royalBlue;
-    }
-    &.sq4 {
-      background-color: colors.$gold;
-    }
-  }
+    button {
+      @include buttonStyles;
+      position: absolute;
+      right: 20px;
+      transition: color .3s, background-color .3s;
+      cursor: pointer;
 
-  &.section1 {
-    flex-direction: column;
-    align-items: flex-start;
-
-    .square {
-      flex-basis: 100px;
-
-      &.sq2 {
-        flex-grow: 1;
-      }
-      &.sq4 {
-        flex-grow: 1;
+      &:hover {
+        background-color: colors.$light;
+        color: colors.$black;
       }
     }
-  }
-
-  &.section2 {
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  &.section3 {
-    flex-direction: row-reverse;
-    justify-content: space-between;
-
-    .square {
-      flex-grow: 1;
-      height: 100%;
-
-      &.sq3 {
-        order: 1;
-      }
-    }
-  }
-
-  &.section4 {
-    flex-direction: row-reverse;
     
-    .sq1, .sq4 {
-      align-self: flex-end;
+    .square {
+      @include buttonStyles;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px;
     }
-
-    .sq3 {
-      align-self: center;
-    }
-  }
+  } 
 }
+
+
