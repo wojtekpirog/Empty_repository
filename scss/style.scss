@@ -27,47 +27,86 @@ body {
   overflow: hidden;
 }
 
-h1 {
-  font-size: 4rem;
-  font-weight: 400;
-  margin: 3rem 0;
+header {
+  h1 {
+    font-size: 3rem;
+    font-weight: 400;
+    margin: 3rem 0;
+  }  
 }
 
-main {
-  height: 100vh;
+div.container {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: colors.$light;
 
-  .container {
-    width: 600px;
-    height: 100%;
-    position: relative;
-    display: flex;
-    flex-flow: row wrap;
-    padding: 20px;
+  div.app-wrapper {
+    width: 80%;
+    max-width: 500px;
+    background-color: colors.$royalBlue;
+    border-radius: 10px;
+    box-shadow: 0 0 10px colors.$black;
 
-    button {
-      @include buttonStyles;
-      position: absolute;
-      right: 20px;
-      transition: color .3s, background-color .3s;
-      cursor: pointer;
+    .top {
+      display: flex;
+      flex-flow: column nowrap;
+      padding: 20px;
 
-      &:hover {
-        background-color: colors.$light;
-        color: colors.$black;
+      h2 {
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 1.6rem;
       }
     }
-    
-    .square {
-      @include buttonStyles;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 10px;
+
+    .bottom {
+      padding: 20px;
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 2rem;
+      }
+
+      input, select {
+        margin-bottom: 20px;
+        padding: 8px 10px;
+        width: 100%;
+        border: none;
+        border-radius: 6px;
+        outline: none;
+      }
+
+      button.calculate {
+        @include buttonStyles;
+        cursor: pointer;
+        margin-bottom: 10px;
+      }
+
+      p.error-box {
+        font-size: 1.8rem;
+        color: colors.$tomato;
+      }
+
+      p.cost-info {
+        font-size: 2rem;
+        display: none;
+
+        span.total {
+          font-weight: bold;
+        }
+      }
     }
-  } 
+  }
 }
 
-
+@media screen and (min-width: 576px) {
+  header h1 {
+    font-size: 4rem;
+  }
+}

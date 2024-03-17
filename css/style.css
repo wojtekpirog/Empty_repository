@@ -21,27 +21,55 @@ body {
   overflow: hidden;
 }
 
-h1 {
-  font-size: 4rem;
+header h1 {
+  font-size: 3rem;
   font-weight: 400;
   margin: 3rem 0;
 }
 
-main {
-  height: 100vh;
+div.container {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #eeeeee;
 }
-main .container {
-  width: 600px;
-  height: 100%;
-  position: relative;
+div.container div.app-wrapper {
+  width: 80%;
+  max-width: 500px;
+  background-color: #4169e1;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000000;
+}
+div.container div.app-wrapper .top {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column nowrap;
   padding: 20px;
 }
-main .container button {
+div.container div.app-wrapper .top h2 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+div.container div.app-wrapper .top p {
+  font-size: 1.6rem;
+}
+div.container div.app-wrapper .bottom {
+  padding: 20px;
+}
+div.container div.app-wrapper .bottom label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+div.container div.app-wrapper .bottom input, div.container div.app-wrapper .bottom select {
+  margin-bottom: 20px;
+  padding: 8px 10px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+}
+div.container div.app-wrapper .bottom button.calculate {
   padding: 10px;
   font-size: 2.2rem;
   color: #eeeeee;
@@ -49,25 +77,23 @@ main .container button {
   border: 3px solid #eeeeee;
   border-radius: 10px;
   outline: none;
-  position: absolute;
-  right: 20px;
-  transition: color 0.3s, background-color 0.3s;
   cursor: pointer;
+  margin-bottom: 10px;
 }
-main .container button:hover {
-  background-color: #eeeeee;
-  color: #000000;
+div.container div.app-wrapper .bottom p.error-box {
+  font-size: 1.8rem;
+  color: #ff6347;
 }
-main .container .square {
-  padding: 10px;
-  font-size: 2.2rem;
-  color: #eeeeee;
-  background: none;
-  border: 3px solid #eeeeee;
-  border-radius: 10px;
-  outline: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px;
+div.container div.app-wrapper .bottom p.cost-info {
+  font-size: 2rem;
+  display: none;
+}
+div.container div.app-wrapper .bottom p.cost-info span.total {
+  font-weight: bold;
+}
+
+@media screen and (min-width: 576px) {
+  header h1 {
+    font-size: 4rem;
+  }
 }/*# sourceMappingURL=style.css.map */
