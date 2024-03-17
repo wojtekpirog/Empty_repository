@@ -1,6 +1,5 @@
 @use "reset";
 @use "colors" as colors;
-@use "variables" as vars;
 
 html {
   font-size: 10px;
@@ -9,44 +8,44 @@ html {
 @mixin buttonStyles {
   padding: 10px;
   font-size: 2.2rem;
-  color: colors.$light;
+  color: colors.$dark;
   background: none;
-  border: 3px solid colors.$light;
+  border: 3px solid colors.$dark;
   border-radius: 10px;
   outline: none;
 }
 
 body {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
   text-align: center;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Sen", sans-serif;
   color: colors.$light;
-  background-color: colors.$black;
+  background-color: colors.$indigo;
   overflow: hidden;
 }
 
-header {
-  h1 {
-    font-size: 3rem;
-    font-weight: 400;
-    margin: 3rem 0;
-  }  
-}
+h1 {
+  font-size: 3rem;
+  font-weight: 400;
+  margin: 3rem 0;
+}  
 
 div.container {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: colors.$light;
+  // background-color: colors.$tomato;
+  background-image: linear-gradient(105deg, colors.$red, colors.$red, colors.$red, colors.$red, colors.$red, colors.$red, colors.$tomato, colors.$gold, colors.$sun, colors.$lime, colors.$grass, colors.$royalBlue, colors.$indigo, colors.$indigo, colors.$royalBlue, colors.$grass, colors.$lime, colors.$sun, colors.$gold, colors.$tomato, colors.$red, colors.$red, colors.$red, colors.$red, colors.$red);
+  background-size: 800%;
+  // animation: name duration timing-function delay iteration-count direction fill-mode play-state
+  animation: colors 18s linear infinite;
 
   div.app-wrapper {
     width: 80%;
     max-width: 500px;
-    background-color: colors.$royalBlue;
+    color: colors.$dark;
+    background-color: colors.$light;
     border-radius: 10px;
-    box-shadow: 0 0 10px colors.$black;
+    box-shadow: 8px 8px 8px colors.$black;
 
     .top {
       display: flex;
@@ -54,13 +53,13 @@ div.container {
       padding: 20px;
 
       h2 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         text-transform: uppercase;
         margin-bottom: 10px;
       }
 
       p {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
       }
     }
 
@@ -75,17 +74,39 @@ div.container {
 
       input, select {
         margin-bottom: 20px;
-        padding: 8px 10px;
+        padding: 10px;
         width: 100%;
         border: none;
         border-radius: 6px;
         outline: none;
+        font-size: 1.8rem;
+        font-family: "Sen", sans-serif;
+
+        &.tip {
+          cursor: pointer;
+
+          /* Arrow down */
+          appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          background-image: url("../assets/images/arrow-down-short.svg");
+          background-repeat: no-repeat;
+          background-position: right 10px top 50%;
+        }
       }
+
 
       button.calculate {
         @include buttonStyles;
         cursor: pointer;
         margin-bottom: 10px;
+        font-family: "Sen", sans-serif;
+        transition: color .2s, background-color .2s;
+
+        &:hover {
+          color: colors.$light;
+          background-color: colors.$dark;
+        }
       }
 
       p.error-box {
@@ -102,6 +123,14 @@ div.container {
         }
       }
     }
+  }
+}
+
+@keyframes colors {
+  0% {
+    background-position: 0% 50%;
+  } 100% {
+    background-position: 100% 50%;
   }
 }
 
