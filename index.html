@@ -23,51 +23,57 @@
     <title>Sandbox Repository</title>
   </head>
   <body>
-    <!-- Page header -->
-    <header>
-      <h1>Sandbox Repository</h1>
-    </header>
-    <!-- Page header -->
-    <main>
-      <div class="container">
-        <!-- App wrapper -->
-        <div class="app-wrapper">
-          <!-- Top -->
-          <div class="top">
-            <h2>Bill Splitter</h2>
-            <p>Podziel się rachunkiem ze znajomymi! :-)</p>
+    <!-- App wrapper -->
+    <div class="container">
+      <form>
+        <header>
+          <h1>Zarejestruj się!</h1>
+        </header>
+        <main>
+          <!-- Form input -->
+          <div class="form-input">
+            <label for="username">Nazwa użytkownika: </label>
+            <input type="text" name="username" id="username" maxlength="20" placeholder="Wpisz nazwę użytkownika" />
+            <p class="error-text">Kod błędu!</p>
           </div>
-          <!-- Top -->
-          <!-- Bottom -->
-          <div class="bottom">
-            <label for="price">💲Kwota do zapłaty:💲</label>
-            <input type="number" id="price" max="10000" required />
-
-            <label for="people">Ile osób (między 2 a 10)? </label>
-            <input type="number" id="people" min="2" max="10" required />
-
-            <label for="tip">Napiwek: </label>
-            <select id="tip" class="tip" required>
-              <option value="0" disabled selected> - wybierz napiwek - </option>
-              <option value="0.05">5%</option>
-              <option value="0.1">10%</option>
-              <option value="0.15">15%</option>
-              <option value="0.2">20%</option>
-            </select>
-
-            <button class="calculate">Oblicz</button>
-            <!-- Error box -->
-            <p class="error-box"></p>
-            <!-- Error box -->
-            <!-- Result -->
-            <p class="cost-info">Każdy z Was powinien złożyć się po <span class="total"></span> zł. 🤑</p>
-            <!-- Result -->
+          <!-- Form input -->
+          <!-- Form input -->
+          <div class="form-input">
+            <label for="email">Adres e-mail: </label>
+            <input type="email" name="email" id="email" placeholder="Wpisz adres e-mail" />
+            <p class="error-text">Kod błędu!</p>
           </div>
-          <!-- Bottom -->
+          <!-- Form input -->
+          <!-- Form input -->
+          <div class="form-input">
+            <label for="password">Hasło: </label>
+            <input type="password" name="password" id="password" placeholder="Wpisz hasło" />
+            <p class="error-text">Kod błędu!</p>
+          </div>
+          <!-- Form input -->
+          <!-- Form input -->
+          <div class="form-input">
+            <label for="repeat-password">Powtórz hasło: </label>
+            <input type="password" name="repeat-password" id="repeat-password" placeholder="Powtórz hasło" />
+            <p class="error-text">Kod błędu!</p>
+          </div>
+          <!-- Form input -->
+          <!-- Control buttons -->
+          <div class="control-buttons">
+            <button type="submit" class="submit" value="Submit">Wyślij</button>
+            <button type="reset" class="reset" value="Reset">Wyczyść</button>
+          </div>
+          <!-- Control buttons -->
+        </main>
+        <!-- Popup -->
+        <div class="popup">
+          <p>Formularz został poprawnie wysłany!</p>
+          <button type="button" class="close-popup">Zamknij</button>
         </div>
-        <!-- App wrapper -->
-      </div>      
-    </main>
+        <!-- Popup -->
+      </form>
+    </div>
+    <!-- App wrapper -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->

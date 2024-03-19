@@ -1,11 +1,9 @@
-let header;
-let container;
-let amount;
-let people;
-let tipSelect;
-let calculateBtn;
-let errorBox;
-let costInfo;
+let username;
+let email;
+let password;
+let repeatPassword;
+let submitButton;
+let clearButton;
 
 const main = () => {
   getElements();
@@ -13,38 +11,57 @@ const main = () => {
 }
 
 const getElements = () => {
-  header = document.querySelector("header");
-  container = document.querySelector(".container");
-  amount = document.querySelector("#price");
-  people = document.querySelector("#people");
-  tipSelect = document.querySelector("#tip");
-  calculateBtn = document.querySelector(".calculate");
-  errorBox = document.querySelector(".error-box");
-  costInfo = document.querySelector(".cost-info");
-  container.style.height = `calc(100vh - ${header.offsetHeight}px)`;
+  username = document.querySelector("#username");
+  email = document.querySelector("#email");
+  password = document.querySelector("#password");
+  repeatPassword = document.querySelector("#repeat-password");
+  submitButton = document.querySelector("button.submit")
+  clearButton = document.querySelector("button.reset")
 }
 
 const addListeners = () => {
-  // priceInput.addEventListener("input", logValue);
-  calculateBtn.addEventListener("click", calculateTip);
+  clearButton.addEventListener("click", clearForm);
+  submitButton.addEventListener("click", submitForm);
 }
 
-const calculateTip = () => {
-  if (!amount.value || !people.value) {
-    errorBox.textContent = "Podaj zarówno kwotę, jak i liczbę osób!";
-  } else if (people.value < 2 || people.value > 10) {
-    errorBox.textContent = "Podaj liczbę osób pomiędzy 2 a 10!";
-  } else {
-    errorBox.textContent = "";
-    const tip = amount.value * tipSelect.value;
-    const result = (parseFloat(amount.value) + tip) / people.value;
-    costInfo.style.display = "block";
-    costInfo.textContent = `Każdy z Was powinien złożyć się po ${result.toFixed(2)} zł.`;
-  }
+const submitForm = event => {
+  event.preventDefault();
+  const inputFields = [username, email, password, repeatPassword];
+  checkForm(inputFields);
 }
 
-const logValue = (event) => {
-  console.log(event.target.value);
+const checkForm = inputFields => {
+  inputFields.forEach(field => {
+    if (field.value === "") {
+      showError(field, field.placeholder);
+    } else {
+      clearError(field);
+    }
+  });
+}
+
+const showError = (field, msg) => {
+  const formInput = field.parentElement;
+  const errorParag = formInput.querySelector(".error-text");
+  
+  errorParag.style.display = "block";
+  errorParag.textContent = msg;
+}
+
+const clearError = field => {
+  const errorInput = field.parentElement;
+  const errorParag = errorInput.querySelector(".error-text");
+
+  errorParag.style.display = "none";
+}
+
+const clearForm = event => {
+  event.preventDefault();
+  const inputFields = [username, email, password, repeatPassword];
+
+  inputFields.forEach(input => {
+    input.value = "";
+  });
 }
 
 document.addEventListener("DOMContentLoaded", main);
