@@ -20,105 +20,17 @@ body {
 h1 {
   font-size: 3rem;
   font-weight: 400;
-  margin: 3rem 0;
+  padding: 3rem 0;
 }
 
-div.container {
+main {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-div.container .error-text {
-  display: none;
-  font-size: 1.8rem;
-  color: #ff6347;
-}
-div.container div.app-wrapper {
-  width: 80%;
-  max-width: 500px;
-  color: #565656;
-  background-color: #eeeeee;
-  border-radius: 10px;
-  box-shadow: 8px 8px 8px #000000;
-}
-div.container div.app-wrapper .top {
-  display: flex;
-  flex-flow: column nowrap;
-  padding: 20px;
-}
-div.container div.app-wrapper .top h2 {
-  font-size: 2.8rem;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-div.container div.app-wrapper .top p {
-  font-size: 1.8rem;
-}
-div.container div.app-wrapper .bottom {
-  padding: 20px;
-}
-div.container div.app-wrapper .bottom label {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 2rem;
-}
-div.container div.app-wrapper .bottom input, div.container div.app-wrapper .bottom select {
-  margin-bottom: 20px;
-  padding: 10px;
-  width: 100%;
-  border: none;
-  border-radius: 6px;
-  outline: none;
-  font-size: 1.8rem;
-  font-family: "Sen", sans-serif;
-}
-div.container div.app-wrapper .bottom input.tip, div.container div.app-wrapper .bottom select.tip {
-  cursor: pointer;
-  /* Arrow down */
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url("../assets/images/arrow-down-short.svg");
-  background-repeat: no-repeat;
-  background-position: right 10px top 50%;
-}
-div.container div.app-wrapper .bottom button.calculate {
-  padding: 10px;
-  font-size: 2.2rem;
-  background: none;
-  border-radius: 10px;
-  outline: none;
-  cursor: pointer;
-  margin-bottom: 10px;
-  font-family: "Sen", sans-serif;
-  transition: color 0.2s, background-color 0.2s;
-}
-div.container div.app-wrapper .bottom button.calculate:hover {
-  color: #eeeeee;
-  background-color: #565656;
-}
-div.container div.app-wrapper .bottom p.error-box {
-  font-size: 1.8rem;
-  color: #ff6347;
-}
-div.container div.app-wrapper .bottom p.cost-info {
-  font-size: 2rem;
-  display: none;
-}
-div.container div.app-wrapper .bottom p.cost-info span.total {
-  font-weight: bold;
-}
 
-@keyframes colors {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
-}
 @media screen and (min-width: 576px) {
-  header h1 {
+  h1 {
     font-size: 4rem;
   }
 }/*# sourceMappingURL=style.css.map */

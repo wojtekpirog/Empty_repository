@@ -20,48 +20,9 @@ const getElements = () => {
 }
 
 const addListeners = () => {
-  clearButton.addEventListener("click", clearForm);
-  submitButton.addEventListener("click", submitForm);
+  // clearButton.addEventListener("click", clearForm);
+  // submitButton.addEventListener("click", submitForm);
 }
 
-const submitForm = event => {
-  event.preventDefault();
-  const inputFields = [username, email, password, repeatPassword];
-  checkForm(inputFields);
-}
-
-const checkForm = inputFields => {
-  inputFields.forEach(field => {
-    if (field.value === "") {
-      showError(field, field.placeholder);
-    } else {
-      clearError(field);
-    }
-  });
-}
-
-const showError = (field, msg) => {
-  const formInput = field.parentElement;
-  const errorParag = formInput.querySelector(".error-text");
-  
-  errorParag.style.display = "block";
-  errorParag.textContent = msg;
-}
-
-const clearError = field => {
-  const errorInput = field.parentElement;
-  const errorParag = errorInput.querySelector(".error-text");
-
-  errorParag.style.display = "none";
-}
-
-const clearForm = event => {
-  event.preventDefault();
-  const inputFields = [username, email, password, repeatPassword];
-
-  inputFields.forEach(input => {
-    input.value = "";
-  });
-}
 
 document.addEventListener("DOMContentLoaded", main);
