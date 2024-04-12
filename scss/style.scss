@@ -3,6 +3,8 @@
 @use "./reset";
 @use "./mixins";
 
+/* NAVBAR */
+
 .burger-btn {
   position: fixed;
   top: 20px;
@@ -49,6 +51,45 @@
       top: 27px;
       width: 30%;
       transition-delay: 100ms;
+    }
+  }
+}
+
+/* HEADER */
+
+.header {
+  height: 75vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  padding: 2em;
+  color: colors.$pure-white;
+  @include mixins.heroImage("../assets/images/hero_image_desktop.jpg");
+  background-attachment: scroll;
+
+  &__title {
+    font-family: "Dancing Script", cursive;
+    font-size: 4.8rem;
+    font-weight: 300;
+  }
+
+  &__link {
+    margin-top: 2em;
+    background: colors.$pure-white;
+    padding: 0.8em 1.6em;
+    border: none;
+    border-radius: 10px;
+    color: colors.$dark;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+
+    &::before {
+      background-color: colors.$light-white;
     }
   }
 }

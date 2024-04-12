@@ -8,3 +8,10 @@
   background-color: colors.$pure-white;
   transition: width 300ms;
 }
+
+@mixin heroImage($bgImg) {
+  background-image: colors.$blue-gradient, url($bgImg);
+  background-size: cover;
+  packground-position: center;
+  background-attachment: fixed;
+}
