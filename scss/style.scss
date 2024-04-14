@@ -111,15 +111,20 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
+  text-align: center;
   padding: 2em;
   color: colors.$pure-white;
   @include mixins.heroImage("../assets/images/hero_image_mobile.jpg");
 
   &__title {
     font-family: "Dancing Script", cursive;
-    font-size: 4.8rem;
+    font-size: 4rem;
     font-weight: 300;
+  }
+
+  &__text {
+    margin-top: .25em;
   }
 
   &__link {
@@ -142,6 +147,12 @@
 }
 
 /* MEDIA QUERIES */
+
+@media (min-width: 375px) {
+  .header__title {
+    font-size: 4.8rem;
+  }
+}
 
 @media (min-width: 768px) {
   .header {
