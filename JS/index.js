@@ -23,10 +23,21 @@ const addListeners = () => {
 
 const toggleNavbar = () => {
   nav.classList.toggle("navbar--active");
+  handleNavItemAnimation();
 }
 
 const closeNavbar = () => {
   nav.classList.remove("navbar--active");
+}
+
+const handleNavItemAnimation = () => {
+  let delay = 0;
+
+  navbarItems.forEach((navbarItem) => {
+    navbarItem.classList.toggle("navbar__item--animation");
+    navbarItem.style.animationDelay = `${delay}ms`;
+    delay += 100;
+  });
 }
 
 window.addEventListener("DOMContentLoaded", main);

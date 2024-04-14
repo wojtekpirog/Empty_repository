@@ -136,6 +136,9 @@ body {
   text-decoration: none;
   line-height: 1;
 }
+.navbar__item--animation {
+  animation: navItemAnimation 1s ease-in-out both;
+}
 .navbar__item::before {
   content: "";
   position: absolute;
@@ -149,6 +152,14 @@ body {
 }
 .navbar__item:hover::before {
   transform: scaleY(1);
+}
+@keyframes navItemAnimation {
+  from {
+    transform: translateX(200%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 /* HEADER */
