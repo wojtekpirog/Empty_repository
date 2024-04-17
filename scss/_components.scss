@@ -49,3 +49,23 @@
     transform-origin: left;
   }
 }
+
+/* MAIN */
+
+.main {
+  .section-padding {
+    padding: 6em 2em;
+
+    .section__title {
+      position: relative;
+      margin-bottom: 2em;
+      color: colors.$primary-color;
+      font-size: 3rem;
+      font-weight: 400;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+  }
+}

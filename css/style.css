@@ -44,6 +44,22 @@
   transform-origin: left;
 }
 
+/* MAIN */
+.main .section-padding {
+  padding: 6em 2em;
+}
+.main .section-padding .section__title {
+  position: relative;
+  margin-bottom: 2em;
+  color: #1755E7;
+  font-size: 3rem;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
 *,
 *::before,
 *::after {
@@ -60,6 +76,7 @@ html {
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 1.6rem;
+  background-color: var(--bg-color);
 }
 
 /* BURGER BTN */
@@ -137,7 +154,7 @@ body {
   line-height: 1;
 }
 .navbar__item--animation {
-  animation: navItemAnimation 1s ease-in-out both;
+  animation: navItemAnimation 1s ease both;
 }
 .navbar__item::before {
   content: "";
@@ -203,10 +220,61 @@ body {
   background-color: #EEE;
 }
 
+/* MAIN */
+.dreams__title {
+  margin-bottom: 0.5em;
+}
+.dreams__box {
+  display: flex;
+  flex-direction: column;
+  margin: 4em 0;
+}
+.dreams__box-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.dreams__img {
+  width: 100%;
+  margin-bottom: 1em;
+  border-radius: 6px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.dreams__text {
+  font-size: 1.2rem;
+  color: #3C3C3C;
+}
+
 /* MEDIA QUERIES */
 @media (min-width: 375px) {
   .header__title {
     font-size: 4.8rem;
+  }
+}
+@media (min-width: 576px) {
+  .dreams__box {
+    flex-direction: row;
+  }
+  .dreams__box-img {
+    width: 45%;
+  }
+  .dreams__box-img--left {
+    margin-right: 2em;
+  }
+  .dreams__box-img--right {
+    margin-left: 2em;
+    order: 1;
+  }
+  .dreams__box-text {
+    width: 55%;
+  }
+  .dreams__box-text--right {
+    text-align: right;
+  }
+  .dreams__img {
+    margin-bottom: 0;
+    max-height: 300px;
   }
 }
 @media (min-width: 768px) {
@@ -221,6 +289,15 @@ body {
   }
   .header__link {
     font-size: 1.5rem;
+  }
+  .main .section-padding {
+    padding: 8em 2em;
+  }
+  .main .section-padding .section-heading {
+    font-size: 3.6rem;
+  }
+  .main .dreams__text {
+    font-size: 1.8rem;
   }
 }
 @media (min-width: 992px) {
@@ -240,5 +317,21 @@ body {
   .header .white-block-left {
     width: 50%;
     height: 30px;
+  }
+  .navbar__item {
+    font-size: 2.6em;
+  }
+  .main .section-padding {
+    padding: 10em 2em;
+  }
+  .main .section-padding .section-heading {
+    font-size: 4.2rem;
+  }
+  .main .dreams__title {
+    font-size: 3.2rem;
+    font-weight: 700;
+  }
+  .main .dreams__text {
+    font-size: 2.2rem;
   }
 }/*# sourceMappingURL=style.css.map */
