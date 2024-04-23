@@ -2,11 +2,20 @@
 @use "./components";
 @use "./reset";
 @use "./mixins";
+@use "./fonts-faces";
+
+:root {
+  --dancing-script-regular: "DancingScript-Regular", cursive;
+  --opensans-light: "OpenSans-Light", sans-serif;
+  --opensans-lightitalic: "OpenSans-LightItalic", sans-serif;
+  --opensans-italic: "OpenSans-Italic", sans-serif;
+  --opensans-regular: "OpenSans-Regular", sans-serif;
+}
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  // font-family: 'Open Sans', sans-serif;
+  font-family: var(--opensans-regular);
   font-size: 1.6rem;
-  background-color: var(--bg-color);
 }
 
 /* BURGER BTN */
@@ -133,10 +142,11 @@ body {
   text-align: center;
   padding: 2em;
   color: colors.$pure-white;
-  @include mixins.heroImage("../assets/images/hero_image_mobile.jpg");
+  @include mixins.heroImage(colors.$blue-gradient, "../assets/images/hero_image_mobile.jpg");
 
   &__title {
-    font-family: "Dancing Script", cursive;
+    // font-family: "Dancing Script", cursive;
+    font-family: var(--dancing-script-regular);
     font-size: 4rem;
     font-weight: 300;
   }
@@ -190,6 +200,34 @@ body {
   &__text {
     font-size: 1.2rem;
     color: colors.$paragraph-color;
+  }
+}
+
+/* Hero Section */
+
+.hero-section {
+  position: relative;
+  padding: 10em 2em;
+  color: colors.$pure-white;
+  text-align: center;
+  overflow-x: hidden;
+
+  &__title {
+    font-family: "Dancing Script", cursive;
+    font-size: 4rem;
+  }
+
+  &__text {
+    font-size: 2rem;
+  }
+
+  hr {
+    width: 90%;
+    margin: 2em auto;
+  }
+
+  &.hero-img {
+    @include mixins.heroImage(colors.$blue-gradient, "../assets/images/hero_image_mobile.jpg");
   }
 }
 
@@ -264,6 +302,26 @@ body {
         font-size: 1.8rem;
       }
     }
+
+    .hero-section {
+      padding: 20em 2em;
+
+      &.hero-img {
+        background-image: colors.$blue-gradient, url("../assets/images/hero_image_desktop.jpg");
+      }
+
+      &__title {
+        font-size: 4em;
+      }
+
+      &__text {
+        font-size: 2.2rem;
+      }
+
+      hr {
+        width: 70%;
+      }
+    }
   }
 }
 
@@ -311,6 +369,16 @@ body {
       }
       &__text {
         font-size: 2.2rem;
+      }
+    }
+
+    .hero-section {
+      &__title {
+        font-size: 5em;
+      }
+
+      &__text {
+        font-size: 2.5rem;
       }
     }
   }
