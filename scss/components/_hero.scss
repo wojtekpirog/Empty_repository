@@ -1,0 +1,62 @@
+@use "../colors";
+@use "../mixins";
+
+.hero-section {
+  position: relative;
+  padding: 10em 2em;
+  color: colors.$pure-white;
+  text-align: center;
+  overflow-x: hidden;
+
+  &__title {
+    font-family: var(--dancing-script-regular);
+    font-size: 4rem;
+  }
+
+  &__text {
+    font-size: 2rem;
+  }
+
+  hr {
+    width: 90%;
+    margin: 2em auto;
+  }
+
+  &.hero-img {
+    @include mixins.heroImage(colors.$blue-gradient, "../assets/images/hero_image_mobile.jpg");
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    padding: 20em 2em;
+
+    &.hero-img {
+      background-image: colors.$blue-gradient, url("../assets/images/hero_image_desktop.jpg");
+    }
+
+    &__title {
+      font-size: 4em;
+    }
+
+    &__text {
+      font-size: 2.2rem;
+    }
+
+    hr {
+      width: 70%;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .hero-section {
+    &__title {
+      font-size: 5em;
+    }
+
+    &__text {
+      font-size: 2.5rem;
+    }
+  }
+}
