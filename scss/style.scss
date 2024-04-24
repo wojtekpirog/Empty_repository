@@ -145,10 +145,8 @@ body {
   @include mixins.heroImage(colors.$blue-gradient, "../assets/images/hero_image_mobile.jpg");
 
   &__title {
-    // font-family: "Dancing Script", cursive;
     font-family: var(--dancing-script-regular);
     font-size: 4rem;
-    font-weight: 300;
   }
 
   &__text {
@@ -174,7 +172,9 @@ body {
   }
 }
 
-/* MAIN */
+/*** MAIN ***/
+
+/* Dreams Section */
 
 .dreams {
   &__title {

@@ -6,8 +6,8 @@
 
 .white-block {
   position: absolute;
-  height: 20px;
   width: 60%;
+  height: 20px;
   background-color: #FFF;
 }
 .white-block-left {
@@ -73,10 +73,87 @@ html {
   scroll-behavior: smooth;
 }
 
+@font-face {
+  font-family: "DancingScript-Regular";
+  src: url("../fonts/DancingScript-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenSans-Light";
+  src: url("../fonts/OpenSans-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenSans-LightItalic";
+  src: url("../fonts/OpenSans-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenSans-Italic";
+  src: url("../fonts/OpenSans-Italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenSans-Regular";
+  src: url("../fonts/OpenSans-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenSans-Medium";
+  src: url("../fonts/OpenSans-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenSans-MediumItalic";
+  src: url("../fonts/OpenSans-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenSans-SemiBold";
+  src: url("../fonts/OpenSans-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenSans-SemiBoldItalic";
+  src: url("../fonts/OpenSans-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenSans-Bold";
+  src: url("../fonts/OpenSans-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --dancing-script-regular: "DancingScript-Regular", cursive;
+  --opensans-light: "OpenSans-Light", sans-serif;
+  --opensans-lightitalic: "OpenSans-LightItalic", sans-serif;
+  --opensans-italic: "OpenSans-Italic", sans-serif;
+  --opensans-regular: "OpenSans-Regular", sans-serif;
+}
+
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: var(--opensans-regular);
   font-size: 1.6rem;
-  background-color: var(--bg-color);
 }
 
 /* BURGER BTN */
@@ -191,14 +268,13 @@ body {
   padding: 2em;
   color: #FFF;
   background-image: linear-gradient(45deg, rgba(20, 105, 241, 0.5), rgba(42, 10, 184, 0.5)), url("../assets/images/hero_image_mobile.jpg");
-  background-attachment: fixed;
-  background-size: cover;
   background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 .header__title {
-  font-family: "Dancing Script", cursive;
+  font-family: var(--dancing-script-regular);
   font-size: 4rem;
-  font-weight: 300;
 }
 .header__text {
   margin-top: 0.25em;
@@ -220,7 +296,8 @@ body {
   background-color: #EEE;
 }
 
-/* MAIN */
+/*** MAIN ***/
+/* Dreams Section */
 .dreams__title {
   margin-bottom: 0.5em;
 }
@@ -244,6 +321,32 @@ body {
 .dreams__text {
   font-size: 1.2rem;
   color: #3C3C3C;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  padding: 10em 2em;
+  color: #FFF;
+  text-align: center;
+  overflow-x: hidden;
+}
+.hero-section__title {
+  font-family: "Dancing Script", cursive;
+  font-size: 4rem;
+}
+.hero-section__text {
+  font-size: 2rem;
+}
+.hero-section hr {
+  width: 90%;
+  margin: 2em auto;
+}
+.hero-section.hero-img {
+  background-image: linear-gradient(45deg, rgba(20, 105, 241, 0.5), rgba(42, 10, 184, 0.5)), url("../assets/images/hero_image_mobile.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 /* MEDIA QUERIES */
@@ -299,6 +402,21 @@ body {
   .main .dreams__text {
     font-size: 1.8rem;
   }
+  .main .hero-section {
+    padding: 20em 2em;
+  }
+  .main .hero-section.hero-img {
+    background-image: linear-gradient(45deg, rgba(20, 105, 241, 0.5), rgba(42, 10, 184, 0.5)), url("../assets/images/hero_image_desktop.jpg");
+  }
+  .main .hero-section__title {
+    font-size: 4em;
+  }
+  .main .hero-section__text {
+    font-size: 2.2rem;
+  }
+  .main .hero-section hr {
+    width: 70%;
+  }
 }
 @media (min-width: 992px) {
   .burger-btn {
@@ -333,5 +451,11 @@ body {
   }
   .main .dreams__text {
     font-size: 2.2rem;
+  }
+  .main .hero-section__title {
+    font-size: 5em;
+  }
+  .main .hero-section__text {
+    font-size: 2.5rem;
   }
 }/*# sourceMappingURL=style.css.map */
