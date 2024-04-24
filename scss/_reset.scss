@@ -6,7 +6,18 @@
   padding: 0;
 }
 
-html {
+:root {
+  --dancing-script-regular: "DancingScript-Regular", cursive;
+  --opensans-light: "OpenSans-Light", sans-serif;
+  --opensans-lightitalic: "OpenSans-LightItalic", sans-serif;
+  --opensans-italic: "OpenSans-Italic", sans-serif;
+  --opensans-regular: "OpenSans-Regular", sans-serif;
+
   font-size: 62.5%;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth;  
+}
+
+body {
+  font-family: var(--opensans-regular);
+  font-size: 1.6rem;
 }
