@@ -1,0 +1,132 @@
+@use "../colors";
+@use "../mixins";
+// @use "../components/";
+
+.islands {
+  &__cards {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__card {
+    margin: 1em 0;
+    height: 450px;
+    color: colors.$pure-white;
+    text-align: center;
+    position: relative; 
+    perspective: 1000px;
+
+    &-img {
+      @include mixins.cardStyles;
+      background-position: center;
+      background-size: cover;
+
+      &--first {
+        background-image: colors.$blue-gradient, url("../../assets/images/borneo.jpg");
+      }
+
+      &--second {
+        background-image: colors.$light-blue-gradient, url("../../assets/images/seychelles.jpg");
+      }
+
+      &--third {
+        background-image: colors.$purple-gradient, url("../../assets/images/japanese-island.jpg");
+      }
+
+      &-title {
+        @include mixins.cardTitleStyles;
+      }
+
+      &-info {
+        position: absolute;
+        bottom: 2em;
+        right: 2em;
+        font-size: 2rem;
+
+        i {
+          margin-right: .3em;
+        }
+      }
+    }
+
+    &-info {
+      @include mixins.cardStyles;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      background-color: colors.$secondary-color;
+      transform: rotateY(180deg);
+      opacity: 0;
+
+      &-title {
+        @include mixins.cardTitleStyles;
+        margin-bottom: .5em;
+      }
+
+      &-list {
+        list-style: none;
+
+        &-item {
+          padding: .7em 0;
+          border-bottom: 2px solid colors.$pure-white;
+          font-size: 1.8rem;
+
+          &:last-child {
+            border: none;
+          }
+        }
+      }
+
+      &-btn {
+        width: 100%;
+        margin-top: 1em;
+        padding: .5em 1em;
+        border: none;
+        border-radius: 4px;
+        font-size: 1.8rem;
+        font-family: var(--opensans-medium);
+        background-color: colors.$green-color;
+        cursor: pointer;
+
+        ::before {
+          background-color: colors.$green-color-hover;
+        }
+      }
+    }
+
+    &:hover {
+      .islands__card-img {
+        transform: rotateY(-180deg);
+        opacity: 0;
+      }
+
+      .islands__card-info {
+        transform: rotateY(0);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .islands {
+    &__cards {
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__card {
+      margin: 1em;
+      width: 45%;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .islands {
+    &__card {
+      width: 30%;
+    }
+  }
+}

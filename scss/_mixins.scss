@@ -15,3 +15,15 @@
   background-size: cover;
   background-attachment: fixed;
 }
+
+@mixin cardStyles {
+  height: 100%;
+  padding: 2em;
+  border-radius: 6px;
+  transition: transform 800ms linear, opacity 800ms linear;
+}
+
+@mixin cardTitleStyles {
+  font-family: var(--dancing-script-regular);
+  font-size: 4rem;
+}
