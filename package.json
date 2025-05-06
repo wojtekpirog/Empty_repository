@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {},
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wojtekpirog/Training_Repository_2.git"
@@ -14,5 +15,8 @@
     "url": "https://github.com/wojtekpirog/Training_Repository_2/issues"
   },
   "homepage": "https://github.com/wojtekpirog/Training_Repository_2#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
 }
