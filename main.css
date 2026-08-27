@@ -1,0 +1,129 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%; /* 10px */
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    font-size: 1.6rem;
+    background-color: #f3f3f3;
+}
+
+[id] {
+    scroll-margin-top: 79px;
+}
+
+.hero-shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: -1;
+}
+
+.orange-color {
+    color: rgb(255, 102, 0);
+}
+
+.orange-background {
+    background-color: rgb(255, 102, 0);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+}
+
+.nav-link {
+    text-transform: uppercase;
+}
+
+.nav-link,
+.navbar-toggler-icon {
+    font-size: 1.8rem;
+}
+
+.custom-welcome-text {
+    font-size: 1.8rem;
+}
+
+.home {
+    position: relative;
+    height: 60rem;
+    z-index: 0;
+}
+
+.aboutus-box > h3 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.aboutus-icon {
+    margin-top: .25em;
+    margin-bottom: .7em;
+    width: 4rem;
+    height: 4rem;
+}
+
+.accordion {
+    --bs-accordion-btn-icon-width: 1.8rem;
+    --bs-accordion-active-bg: rgb(255, 102, 0);
+    --bs-accordion-active-color: #FFFFFF;
+}
+
+.accordion-button {
+    font-size: 1.8rem;
+}
+
+.team {
+    background-color: rgb(248, 248, 248);
+}
+
+.team .card-img-top {
+    height: 300px;
+    object-fit: cover;
+}
+
+.team .card-title {
+    padding: 0.25em 0;
+    font-size: 2rem;
+}
+
+.card {
+    --bs-card-border-color: rgb(255, 102, 0);
+    --bs-card-border-radius: 3px;
+}
+
+.bi-geo-alt,
+.bi-phone,
+.bi-at {
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+.contact span,
+.contact input[type="text"],
+.contact textarea {
+    font-size: 1.6rem;
+}
+
+@media (min-width: 992px) {
+    [id] {
+        scroll-margin-top: 69.25px;
+    }
+}
