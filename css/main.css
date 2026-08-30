@@ -43,3 +43,17 @@ body {
 .orange-background {
     background-color: rgb(255, 102, 0);
 }
+
+.navbar-brand {
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: none;
+}
+
+.navbar-toggler {
+    font-size: 1.8rem;
+}
+
+.nav-link {
+    font-weight: 500;
+}
